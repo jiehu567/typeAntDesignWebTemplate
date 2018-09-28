@@ -1,15 +1,15 @@
 import { Button } from "antd";
 import * as React from "react";
-import "./App.css";
+import { hot } from "react-hot-loader";
+import { Provider } from "react-redux";
+import { HashRouter } from "react-router-dom";
+import { store } from "./store";
 
-class App extends React.Component {
-  public render() {
-    return (
-      <div className="App">
-        <Button type="primary">Button</Button>
-      </div>
-    );
-  }
-}
+const App = () =>
+    <HashRouter>
+        <Provider store={store}>
+          <Button type="primary">Button</Button>
+        </Provider>
+    </HashRouter>;
 
-export default App;
+export default hot(module)(App);
